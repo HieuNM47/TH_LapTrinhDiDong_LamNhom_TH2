@@ -1,0 +1,12 @@
+Tên nhóm: BVDK_News_HTQ_0306191022_0306191065_0306191092
+
+Phân công:
+
+0306191022_ Nguyễn Minh Hiếu:
+	- Làm giao diện email
+
+0306191065_ Nguyễn Văn Trúc:
+	- Giao diện đăng nhập, load đăng nhập
+
+0306191092_ Nguyễn Trung Quân:
+	- Đăng nhập không thành công
