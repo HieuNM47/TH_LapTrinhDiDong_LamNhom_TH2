@@ -3,12 +3,34 @@ import 'dart:html';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MaterialApp(
-    routes: <String, WidgetBuilder>{
-      '/': (context) => const PageLoiDangNhap(),
-    },
-  ));
+  runApp(const MyApp());
 }
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      home: LoginPage(),
+    );
+  }
+}
+
+// import 'dart:html';
+
+// import 'package:flutter/material.dart';
+
+// void main() {
+//   runApp(MaterialApp(
+//     routes: <String, WidgetBuilder>{
+//       '/': (context) => const PageLoiDangNhap(),
+//     },
+//   ));
+// }
 
 class PageLoiDangNhap extends StatelessWidget {
   const PageLoiDangNhap({Key? key}) : super(key: key);
