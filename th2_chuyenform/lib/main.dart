@@ -1,4 +1,6 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,7 +30,7 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     void Login() {
-      if (_IDControlUse.text == '' && _IDControlPass.text == '') {
+      if (_IDControlUse.text == '' || _IDControlPass.text == '') {
         showDialog(
             context: context,
             builder: (BuildContext context) {
@@ -40,29 +42,16 @@ class LoginPage extends StatelessWidget {
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    child: Text('Tắt'),
+                    child: Text('Đóng'),
                   )
                 ],
               );
             });
       } else if (_IDControlUse.text == Us && _IDControlPass.text == Pass) {
-        //Navigator chuyển tới trang Load + mailBox, Showdialog chỉ mang tính chất test xử lý đăng nhập
-        showDialog(
-            context: context,
-            builder: (BuildContext context) {
-              return AlertDialog(
-                title: const Text('Thông báo'),
-                content: Text('Đăng nhập thành công'),
-                actions: [
-                  TextButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    child: Text('Tắt'),
-                  )
-                ],
-              );
-            });
+        //Navigator chuyển tới trang Load + mailBoxes
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => LoadingPage()));
+        Timer(Duration(seconds: 3), () {});
       } else {
         //Navigator chuyển tới trang lỗi đăng nhập, Showdialog chỉ mang tính chất test xử lý đăng nhập
         showDialog(
@@ -76,7 +65,7 @@ class LoginPage extends StatelessWidget {
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    child: Text('Tắt'),
+                    child: Text('Đóng'),
                   )
                 ],
               );
@@ -170,6 +159,56 @@ class LoginPage extends StatelessWidget {
           ButtonSignin,
         ],
       )),
+    );
+  }
+}
+
+// Giao diện loading
+class LoadingPage extends StatelessWidget {
+  LoadingPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    Widget Imagesection = Image.asset(
+      'images/Email.JPG',
+      width: 150,
+      height: 150,
+      fit: BoxFit.cover,
+    );
+    Widget TextSignln = Container(
+      alignment: Alignment.center,
+      child: Text(
+        'Signln',
+        style: TextStyle(fontSize: 60, color: Colors.white),
+      ),
+    );
+    Widget Textabc = Container(
+      alignment: Alignment.center,
+      child: Text(
+        'Speak, friend, and enter',
+        style: TextStyle(fontSize: 20),
+      ),
+    );
+    Widget Load = Container(
+      width: 300,
+      height: 300,
+      child: SpinKitFadingCircle(color: Colors.white),
+    );
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.cyan,
+      ),
+      backgroundColor: Colors.cyan,
+      body: Center(
+        child: Column(
+          children: [
+            Imagesection,
+            TextSignln,
+            Textabc,
+            Load,
+          ],
+        ),
+      ),
     );
   }
 }
