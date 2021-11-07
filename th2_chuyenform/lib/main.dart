@@ -218,7 +218,12 @@ class HomePage extends State<ListEmail> {
   void _delCheckBox() {
     setState(() {});
     if (AllMailBoxes) {
-      delAllMailBoxes = true;
+      AllMailBoxes = false;
+      // delAllMailBoxes = true;
+      delIcloud = true;
+      delGmail = true;
+      delHostMail = true;
+      delVip = true;
     }
     if (Icloud) {
       delIcloud = true;
@@ -311,6 +316,10 @@ class HomePage extends State<ListEmail> {
                           onChanged: (bool? value) {
                             setState(() {
                               AllMailBoxes = !AllMailBoxes;
+                              Icloud = AllMailBoxes;
+                              Gmail = AllMailBoxes;
+                              HostMail = AllMailBoxes;
+                              Vip = AllMailBoxes;
                             });
                           },
                         ),
@@ -361,7 +370,7 @@ class HomePage extends State<ListEmail> {
                           },
                         ),
                         Icon(
-                          Icons.mail_outline,
+                          Icons.cloud_circle,
                           color: Colors.green[120],
                           size: 25.0,
                         ),
@@ -499,7 +508,7 @@ class HomePage extends State<ListEmail> {
                           },
                         ),
                         Icon(
-                          Icons.mail_outline,
+                          Icons.account_box,
                           color: Colors.green[120],
                           size: 25.0,
                         ),
@@ -550,7 +559,7 @@ class HomePage extends State<ListEmail> {
                           },
                         ),
                         Icon(
-                          Icons.mail_outline,
+                          Icons.security,
                           color: Colors.green[120],
                           size: 25.0,
                         ),
@@ -596,7 +605,7 @@ class HomePage extends State<ListEmail> {
                           },
                         ),
                         Icon(
-                          Icons.mail_outline,
+                          Icons.notifications_sharp,
                           color: Colors.green[120],
                           size: 25.0,
                         ),
