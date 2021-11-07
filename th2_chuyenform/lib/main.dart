@@ -198,7 +198,47 @@ class ListEmail extends StatefulWidget {
 }
 
 class HomePage extends State<ListEmail> {
-  bool _isSecure = false;
+  // true là đã check
+  bool AllMailBoxes = false;
+  bool Icloud = false;
+  bool Gmail = false;
+  bool HostMail = false;
+  bool Vip = false;
+  bool Secure = false;
+  bool Notication = false;
+
+  // xóa mềm
+  bool delAllMailBoxes = false;
+  bool delIcloud = false;
+  bool delGmail = false;
+  bool delHostMail = false;
+  bool delVip = false;
+  bool delSecure = false;
+  bool delNotication = false;
+  void _delCheckBox() {
+    setState(() {});
+    if (AllMailBoxes) {
+      delAllMailBoxes = true;
+    }
+    if (Icloud) {
+      delIcloud = true;
+    }
+    if (Gmail) {
+      delGmail = true;
+    }
+    if (HostMail) {
+      delHostMail = true;
+    }
+    if (Vip) {
+      delVip = true;
+    }
+    if (Secure) {
+      delSecure = true;
+    }
+    if (Notication) {
+      delNotication = true;
+    }
+  }
 
   Container titleSection(String text) {
     return Container(
@@ -213,52 +253,6 @@ class HomePage extends State<ListEmail> {
               // backgroundColor: Colors.blueGrey[50],
             ),
           ),
-        ],
-      ),
-    );
-  }
-
-  Padding itemMail(String name, String quantity) {
-    return Padding(
-      padding: EdgeInsets.fromLTRB(10, 10, 0, 0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  Checkbox(
-                    value: _isSecure,
-                    activeColor: Colors.blue,
-                    onChanged: (bool? value) {
-                      setState(() {
-                        _isSecure = _isSecure ? false : true;
-                      });
-                    },
-                  ),
-                  Icon(
-                    Icons.mail_outline,
-                    color: Colors.green[120],
-                    size: 25.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 5),
-                    child: Text(name),
-                  )
-                ],
-              ),
-              Padding(
-                padding: EdgeInsets.only(right: 20),
-                child: Text(quantity),
-              )
-            ],
-          ),
-          Container(
-            height: 1,
-            color: Colors.black12,
-          )
         ],
       ),
     );
@@ -299,18 +293,333 @@ class HomePage extends State<ListEmail> {
     Widget listItemMailboxesSection = Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        itemMail('All inboxes', '1'),
-        itemMail('Icloud', '2'),
-        itemMail('Gmail', '3'),
-        itemMail('Hostmail', '4'),
-        itemMail('VIP', '5'),
+        Offstage(
+          offstage: delAllMailBoxes,
+          child: Padding(
+            padding: EdgeInsets.fromLTRB(10, 10, 0, 0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Checkbox(
+                          value: AllMailBoxes,
+                          activeColor: Colors.blue,
+                          onChanged: (bool? value) {
+                            setState(() {
+                              AllMailBoxes = !AllMailBoxes;
+                            });
+                          },
+                        ),
+                        Icon(
+                          Icons.mail_outline,
+                          color: Colors.green[120],
+                          size: 25.0,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 5),
+                          child: Text('All mailboxes'),
+                        )
+                      ],
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(right: 20),
+                      child: Text('1'),
+                    )
+                  ],
+                ),
+                Container(
+                  height: 1,
+                  color: Colors.black12,
+                )
+              ],
+            ),
+          ),
+        ),
+        Offstage(
+          offstage: delIcloud,
+          child: Padding(
+            padding: EdgeInsets.fromLTRB(10, 10, 0, 0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Checkbox(
+                          value: Icloud,
+                          activeColor: Colors.blue,
+                          onChanged: (bool? value) {
+                            setState(() {
+                              Icloud = !Icloud;
+                            });
+                          },
+                        ),
+                        Icon(
+                          Icons.mail_outline,
+                          color: Colors.green[120],
+                          size: 25.0,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 5),
+                          child: Text('Icloud'),
+                        )
+                      ],
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(right: 20),
+                      child: Text('1'),
+                    )
+                  ],
+                ),
+                Container(
+                  height: 1,
+                  color: Colors.black12,
+                )
+              ],
+            ),
+          ),
+        ),
+        Offstage(
+          offstage: delGmail,
+          child: Padding(
+            padding: EdgeInsets.fromLTRB(10, 10, 0, 0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Checkbox(
+                          value: Gmail,
+                          activeColor: Colors.blue,
+                          onChanged: (bool? value) {
+                            setState(() {
+                              Gmail = !Gmail;
+                            });
+                          },
+                        ),
+                        Icon(
+                          Icons.mail_outline,
+                          color: Colors.green[120],
+                          size: 25.0,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 5),
+                          child: Text('Gmail'),
+                        )
+                      ],
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(right: 20),
+                      child: Text('3'),
+                    )
+                  ],
+                ),
+                Container(
+                  height: 1,
+                  color: Colors.black12,
+                )
+              ],
+            ),
+          ),
+        ),
+        Offstage(
+          offstage: delHostMail,
+          child: Padding(
+            padding: EdgeInsets.fromLTRB(10, 10, 0, 0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Checkbox(
+                          value: HostMail,
+                          activeColor: Colors.blue,
+                          onChanged: (bool? value) {
+                            setState(() {
+                              HostMail = !HostMail;
+                            });
+                          },
+                        ),
+                        Icon(
+                          Icons.mail_outline,
+                          color: Colors.green[120],
+                          size: 25.0,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 5),
+                          child: Text('HostMail'),
+                        )
+                      ],
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(right: 20),
+                      child: Text('4'),
+                    )
+                  ],
+                ),
+                Container(
+                  height: 1,
+                  color: Colors.black12,
+                )
+              ],
+            ),
+          ),
+        ),
+        Offstage(
+          offstage: delVip,
+          child: Padding(
+            padding: EdgeInsets.fromLTRB(10, 10, 0, 0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Checkbox(
+                          value: Vip,
+                          activeColor: Colors.blue,
+                          onChanged: (bool? value) {
+                            setState(() {
+                              Vip = !Vip;
+                            });
+                          },
+                        ),
+                        Icon(
+                          Icons.mail_outline,
+                          color: Colors.green[120],
+                          size: 25.0,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 5),
+                          child: Text('VIP'),
+                        )
+                      ],
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(right: 20),
+                      child: Text('1'),
+                    )
+                  ],
+                ),
+                Container(
+                  height: 1,
+                  color: Colors.black12,
+                )
+              ],
+            ),
+          ),
+        ),
       ],
     );
     Widget listItemSpecicalSection = Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        itemMail('Secure', '1'),
-        itemMail('Notications', '2'),
+        Offstage(
+          offstage: delSecure,
+          child: Padding(
+            padding: EdgeInsets.fromLTRB(10, 10, 0, 0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Checkbox(
+                          value: Secure,
+                          activeColor: Colors.blue,
+                          onChanged: (bool? value) {
+                            setState(() {
+                              Secure = !Secure;
+                            });
+                          },
+                        ),
+                        Icon(
+                          Icons.mail_outline,
+                          color: Colors.green[120],
+                          size: 25.0,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 5),
+                          child: Text('Secure'),
+                        )
+                      ],
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(right: 20),
+                      child: Text('1'),
+                    )
+                  ],
+                ),
+                Container(
+                  height: 1,
+                  color: Colors.black12,
+                )
+              ],
+            ),
+          ),
+        ),
+        Offstage(
+          offstage: delNotication,
+          child: Padding(
+            padding: EdgeInsets.fromLTRB(10, 10, 0, 0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Checkbox(
+                          value: Notication,
+                          activeColor: Colors.blue,
+                          onChanged: (bool? value) {
+                            setState(() {
+                              Notication = !Notication;
+                            });
+                          },
+                        ),
+                        Icon(
+                          Icons.mail_outline,
+                          color: Colors.green[120],
+                          size: 25.0,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 5),
+                          child: Text('Notications'),
+                        )
+                      ],
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(right: 20),
+                      child: Text('1'),
+                    )
+                  ],
+                ),
+                Container(
+                  height: 1,
+                  color: Colors.black12,
+                )
+              ],
+            ),
+          ),
+        ),
       ],
     );
     Widget footerSection = Expanded(
@@ -333,7 +642,7 @@ class HomePage extends State<ListEmail> {
                     Padding(
                       padding: EdgeInsets.only(left: 220),
                       child: TextButton(
-                        onPressed: () {},
+                        onPressed: _delCheckBox,
                         child: Text(
                           'Delete',
                           style: TextStyle(fontSize: 15),
