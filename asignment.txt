@@ -1,4 +1,4 @@
-﻿Tên nhóm: BVDK_News_HTQ_0306191022_0306191065_0306191092
+Tên nhóm: BVDK_News_HTQ_0306191022_0306191065_0306191092
 
 Phân công:
 
@@ -10,6 +10,3 @@ Phân công:
 
 0306191092_ Nguyễn Trung Quân:
 	- Đăng nhập không thành công
-
-
-123
